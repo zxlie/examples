@@ -7,7 +7,7 @@
     <title>喜报生成器 | 钉钉AI助理</title>
 
     <!-- mini包样式设置 (只包含mini包组件)-->
-    <link rel="stylesheet" href="./static/pc.css">
+    <link rel="stylesheet" href="./static/pc.css?v=1">
     
     <style type="text/css" data-for="page">
         body {
@@ -167,6 +167,19 @@
           text-align: left;
           margin-top: -25px;
         }
+        #div_km2t1o30{
+          position: absolute;
+          top:-10000px;
+          left: -10000px;
+        }
+        .deep-banner-container{
+          padding: 10px 0;
+          text-align: center;
+        }
+        .next-btn.next-btn-primary.btn-mobile {
+          background: white;
+          color: #444;
+        }
     </style>
     <meta name="referrer" content="no-referrer-when-downgrade"></head>
 
@@ -190,25 +203,30 @@
                 title="" style="width: auto; height: auto; object-fit: cover; border-radius: 0px;" data-spm-anchor-id="a2q5o.26736376.0.i2.2a846537vQ38XA">
       <img class="vc-image--yida image_l2h84hhc" src="./static/dingtalk.webp" alt="Image 404" title="" style="width: 50px; height: auto; object-fit: cover; border-radius: 0px;">
    </div>
-   <div class="vc-banner-container deep-banner-container" style="width: 2560px; margin-left: 0px;">
-      <div class="vc-banner-container deep-banner-container-inner">
-         <div class="vc-banner-container deep-banner-container-extra"></div>
-         <div class="vc-banner-container deep-banner-container-children-center">
-            <button baseicon="" othericon="" type="button" class="next-btn next-large next-btn-primary vc-button button_ktkutd9f" id="btnDownload"><span class="next-btn-helper"></span><span class="next-btn-helper">下载图片</span>
-
+   <div id="xcanvas"></div>
+   <div class="vc-banner-container deep-banner-container">
+      <button baseicon="" othericon="" type="button" class="next-btn next-large next-btn-primary vc-button button_ktkutd9f" id="btnDownload"><span class="next-btn-helper"></span><span class="next-btn-helper">下载图片</span>
             </button>
-            <div class="vc-text text_ktkutd9g" title="">* 首次下载需要一些时间，点击后请稍等一会</div>
-         </div>
-      </div>
    </div>
 </div>
 <script type="text/javascript" src="./static/html2canvas.min.js"></script>
 <script type="text/javascript">
+    function isMobileDevice() {
+        // 获取用户代理字符串
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+     
+        // 定义一些常见的移动设备的用户代理字符串特征
+        const mobileRegex = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+     
+        // 检查用户代理字符串是否包含上述特征
+        return mobileRegex.test(userAgent);
+    }
+
     window.onload = () => {
         let url = new URL(location.href);
         let company = url.searchParams.get('company') || '非常重要的客户';
         let goods = url.searchParams.get('goods') || '重要的商品';
-        let money = url.searchParams.get('money') || '***';
+        let money = parseInt(url.searchParams.get('money'),10) || '***';
         let date = url.searchParams.get('date') || '近期';
         let detail = url.searchParams.get('detail') || '';
 
@@ -218,16 +236,35 @@
         document.querySelector('#date').textContent = date;
         document.querySelector('#detail').textContent = detail;
 
-        document.querySelector('#btnDownload').onclick = (e) => {
-            html2canvas(document.querySelector("#div_km2t1o30")).then(canvas => {
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = company + '.png';
-                link.click();
-                link.remove();
-                window.close();
-            });        
-        };
+        html2canvas(document.querySelector("#div_km2t1o30")).then(canvas => {
+          document.querySelector('#xcanvas').appendChild(canvas);
+          canvas.classList.add('vc-div');
+          canvas.classList.add('div_ktkutd9b')
+          
+          let btnDownload = document.querySelector('#btnDownload');
+          if(isMobileDevice()) {
+            btnDownload.textContent = '长按上方图片，保存喜报！';
+            btnDownload.classList.add('btn-mobile');
+            const img = document.createElement('img');
+            img.setAttribute('src', document.querySelector('#xcanvas>canvas').toDataURL('image/png'));
+            document.querySelector('#xcanvas').appendChild(img);
+            img.classList.add('vc-div');
+            img.classList.add('div_ktkutd9b')
+            canvas.remove();
+          }else{
+            btnDownload.onclick = (e) => {
+              const link = document.createElement('a');
+              link.href = document.querySelector('#xcanvas>canvas').toDataURL('image/png');
+              link.download = company + '.png';
+              link.click();
+              link.remove();
+              window.close();     
+            };
+
+            btnDownload.click();
+          }
+              
+        });
     };
 </script>
 </body></html>
