@@ -176,16 +176,16 @@
       <div class="vc-div div_ktkutd93">
          <div class="vc-text text_ktkutd92" title=""></div>
       </div>
-      <div class="vc-text text_ktkutd94" title="">2024-11-26</div>
-      <div class="vc-text text_ktkutd95" title="">精选AI助理</div>
+      <div class="vc-text text_ktkutd94" title="" id="date">2024-11-26</div>
+      <div class="vc-text text_ktkutd95" title="" id="goods">精选AI助理</div>
       <div class="vc-div div_ktkutd98">
-         <div class="vc-text text_ktkutd96" title="">35.0</div>
+         <div class="vc-text text_ktkutd96" title="" id="money">35.0</div>
          <div class="vc-text text_ktkutd97" title="">万</div>
       </div>
       <div class="vc-div div_lktoo2x0">
-         <div class="vc-text text_lktoo2wz" title=""></div>
+         <div class="vc-text text_lktoo2wz" title="" id="detail">订单明细</div>
       </div>
-      <div class="vc-text text_ktkutd99" title="">钉三多集团</div>
+      <div class="vc-text text_ktkutd99" title="" id="company">钉三多集团</div>
       <img class="vc-image--yida image_ktkutd9a" src="./static/background.webp" alt="Image 404" 
                 title="" style="width: auto; height: auto; object-fit: cover; border-radius: 0px;" data-spm-anchor-id="a2q5o.26736376.0.i2.2a846537vQ38XA">
       <img class="vc-image--yida image_l2h84hhc" src="./static/dingtalk.webp" alt="Image 404" title="" style="width: 50px; height: auto; object-fit: cover; border-radius: 0px;">
@@ -205,15 +205,28 @@
 <script type="text/javascript" src="./static/html2canvas.min.js"></script>
 <script type="text/javascript">
     window.onload = () => {
+        let url = new URL(location.href);
+        let company = url.searchParams.get('company') || '非常重要的客户';
+        let goods = url.searchParams.get('goods') || '重要的商品';
+        let money = url.searchParams.get('money') || '***';
+        let date = url.searchParams.get('date') || '近期';
+        let detail = url.searchParams.get('detail') || '';
+
+        document.querySelector('#company').textContent = company;
+        document.querySelector('#goods').textContent = goods;
+        document.querySelector('#money').textContent = money;
+        document.querySelector('#date').textContent = date;
+        document.querySelector('#detail').textContent = detail;
+
         document.querySelector('#btnDownload').onclick = (e) => {
             html2canvas(document.querySelector("#div_km2t1o30")).then(canvas => {
-                        
-                        const link = document.createElement('a');
-                        link.href = canvas.toDataURL('image/png');
-                        link.download = 'screenshot.png';
-                        link.click();
-
-                    });        
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = company + '.png';
+                link.click();
+                link.remove();
+                window.close();
+            });        
         };
     };
 </script>
