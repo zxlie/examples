@@ -187,7 +187,7 @@
 <div>
    <div id="div_km2t1o30" class="vc-div div_ktkutd9b">
       <div class="vc-div div_ktkutd93">
-         <div class="vc-text text_ktkutd92" title=""></div>
+         <div class="vc-text text_ktkutd92" title="" id="team"></div>
       </div>
       <div class="vc-text text_ktkutd94" title="" id="date">2024-11-26</div>
       <div class="vc-text text_ktkutd95" title="" id="goods">精选AI助理</div>
@@ -229,12 +229,14 @@
         let money = parseInt(url.searchParams.get('money'),10) || '***';
         let date = url.searchParams.get('date') || '近期';
         let detail = url.searchParams.get('detail') || '';
+        let team = url.searchParams.get('team') || ''; 
 
         document.querySelector('#company').textContent = company;
         document.querySelector('#goods').textContent = goods;
         document.querySelector('#money').textContent = money;
         document.querySelector('#date').textContent = date;
         document.querySelector('#detail').textContent = detail;
+        document.querySelector('#team').textContent = team;
 
         html2canvas(document.querySelector("#div_km2t1o30")).then(canvas => {
           document.querySelector('#xcanvas').appendChild(canvas);
