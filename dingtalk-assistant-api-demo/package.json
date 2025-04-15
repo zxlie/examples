@@ -1,0 +1,15 @@
+{
+  "name": "dingtalk-assistant-demo",
+  "version": "1.0.0",
+  "description": "钉钉AI助理API交互演示",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  }
+} 
