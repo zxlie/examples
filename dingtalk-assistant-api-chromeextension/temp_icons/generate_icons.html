@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG到PNG转换</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>图标生成工具</h1>
+    <div id="icons"></div>
+    
+    <script>
+        const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="16" fill="#1890FF"/>
+  <path d="M32 32 L96 32 L96 96 L32 96 Z" fill="none" stroke="white" stroke-width="8"/>
+  <circle cx="64" cy="64" r="16" fill="white"/>
+  <path d="M48 40 L80 40 M48 88 L80 88" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 32 L64 16 M64 96 L64 112" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>`;
+        
+        // 创建SVG图像对象
+        const svgImage = new Image();
+        svgImage.src = 'data:image/svg+xml;base64,' + btoa(svgContent);
+        
+        svgImage.onload = function() {
+            // 生成不同尺寸的图标
+            createIcon(16, 'icon16.png');
+            createIcon(48, 'icon48.png');
+            createIcon(128, 'icon128.png');
+        };
+        
+        function createIcon(size, filename) {
+            // 创建Canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            document.getElementById('icons').appendChild(canvas);
+            
+            // 绘制图标
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(svgImage, 0, 0, size, size);
+            
+            // 创建下载链接
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.textContent = `下载 ${filename} (${size}x${size})`;
+            link.style.display = 'block';
+            document.getElementById('icons').appendChild(link);
+        }
+    </script>
+</body>
+</html> 
