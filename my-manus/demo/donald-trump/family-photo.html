@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特朗普家族 - 家族肖像</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .photo-page {
+            background-color: var(--dark-bg);
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+        
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .photo-card {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .photo-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .photo-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover .photo-info {
+            transform: translateY(0);
+        }
+        
+        .photo-info h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .photo-info p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .main-portrait {
+            height: 70vh;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: var(--light-text);
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+        }
+        
+        .intro-text {
+            color: var(--light-text);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">特朗普家族</h1>
+        <p class="site-description">美国商业与政治传奇家族</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="family-photo.html" class="active">家族肖像</a></li>
+            <li><a href="family-tree.html">家族族谱</a></li>
+        </ul>
+    </nav>
+
+    <div class="photo-page">
+        <div class="container">
+            <h1 class="section-title">特朗普家族肖像</h1>
+            <p class="intro-text">特朗普家族在美国政治和商业领域扮演着重要角色。以下是家族核心成员的肖像照片。</p>
+            
+            <a href="family-tree.html" class="photo-container main-portrait">
+                <iframe src="images-real/donald.html" class="photo-iframe"></iframe>
+                <div class="overlay">
+                    <h1>唐纳德·特朗普</h1>
+                    <p>美国第45任、第47任总统，特朗普集团创始人。唐纳德·特朗普于1946年出生于纽约，是弗雷德·特朗普的儿子。他将家族房地产业务扩展到曼哈顿，打造了特朗普品牌的奢华形象。2016年，他当选为美国第45任总统。2024年，他再次当选为美国第47任总统。</p>
+                    <span class="view-button">查看家族族谱</span>
+                </div>
+            </a>
+            
+            <div class="photos-grid">
+                <div class="photo-card">
+                    <iframe src="images-real/fred.html" class="photo-frame"></iframe>
+                    <div class="photo-info">
+                        <h3>弗雷德·特朗普</h3>
+                        <p>唐纳德的父亲，纽约房地产开发商</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <iframe src="images-real/donald-jr.html" class="photo-frame"></iframe>
+                    <div class="photo-info">
+                        <h3>小唐纳德·特朗普</h3>
+                        <p>唐纳德的长子，特朗普集团执行副总裁</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <iframe src="images-real/ivanka.html" class="photo-frame"></iframe>
+                    <div class="photo-info">
+                        <h3>伊万卡·特朗普</h3>
+                        <p>唐纳德的女儿，前白宫高级顾问</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <iframe src="images-real/melania.html" class="photo-frame"></iframe>
+                    <div class="photo-info">
+                        <h3>梅拉尼娅·特朗普</h3>
+                        <p>唐纳德的妻子，美国前第一夫人，现任第一夫人</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <iframe src="images-real/eric.html" class="photo-frame"></iframe>
+                    <div class="photo-info">
+                        <h3>埃里克·特朗普</h3>
+                        <p>唐纳德的儿子，特朗普集团执行副总裁</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="family-photo.html">家族肖像</a>
+                <a href="family-tree.html">家族族谱</a>
+            </div>
+            <p class="copyright">© 2024 特朗普家族网站 - 图片来源：维基百科公共领域</p>
+        </div>
+    </footer>
+</body>
+</html> 

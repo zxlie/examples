@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梅耶·马斯克照片</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .photo-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .photo {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5a/Maye_Musk_2022.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .fallback {
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #181c2c;
+            border-radius: 10px;
+            display: none;
+        }
+        @media (max-width: 600px) {
+            .photo {
+                background-size: contain;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="photo-container">
+        <div class="photo"></div>
+        <div class="fallback">
+            <h2>梅耶·马斯克</h2>
+            <p>国际知名模特、营养学家和作家，埃隆·马斯克的母亲，拥有超过50年的模特生涯。</p>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            const img = new Image();
+            img.src = 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Maye_Musk_2022.jpg';
+            img.onerror = function() {
+                document.querySelector('.photo').style.display = 'none';
+                document.querySelector('.fallback').style.display = 'block';
+            };
+        });
+    </script>
+</body>
+</html> 

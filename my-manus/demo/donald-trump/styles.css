@@ -1,0 +1,457 @@
+/* 特朗普家族网站样式表 */
+
+:root {
+    /* 特朗普家族配色方案 */
+    --primary-color: #1a2a57;    /* 深蓝色 - 主色调 */
+    --secondary-color: #f7f7f7;  /* 浅灰色 - 辅助色 */
+    --accent-color: #bf9b30;     /* 金色 - 强调色 */
+    --text-color: #333333;       /* 文本颜色 */
+    --light-text: #ffffff;       /* 浅色文本 */
+    --dark-bg: #121212;          /* 深色背景 */
+    --border-radius: 8px;        /* 圆角半径 */
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+}
+
+/* 头部样式 */
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+}
+
+.site-description {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* 导航样式 */
+nav {
+    background-color: var(--primary-color);
+    padding-bottom: 15px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--accent-color);
+}
+
+/* 首页样式 */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    color: var(--light-text);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.family-intro {
+    padding: 50px 0;
+    background-color: var(--secondary-color);
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 2rem 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.interactive-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(26, 42, 87, 0.8);
+    color: var(--light-text);
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.img-container:hover .img-overlay {
+    transform: translateY(0);
+}
+
+.img-container:hover .interactive-img {
+    transform: scale(1.05);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.timeline-year {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* 肖像页样式 */
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+}
+
+.photo-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 42, 87, 0.7);
+    color: var(--light-text);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.photo-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h1 {
+    color: var(--light-text);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.view-button {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #d4b046;
+}
+
+/* 族谱页样式 */
+.family-tree-section {
+    padding: 50px 0;
+    background-color: var(--secondary-color);
+}
+
+.family-tree {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+.family-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.family-member {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.family-member:hover {
+    transform: translateY(-10px);
+}
+
+.family-member-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: none;
+}
+
+.family-member-info {
+    padding: 20px;
+}
+
+.family-member h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: var(--light-text);
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    .family-members {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .overlay h1 {
+        font-size: 2.2rem;
+    }
+    
+    .overlay {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-container {
+        height: 300px;
+    }
+    
+    .family-members {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .overlay h1 {
+        font-size: 1.8rem;
+    }
+} 

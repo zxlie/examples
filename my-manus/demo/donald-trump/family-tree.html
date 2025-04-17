@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特朗普家族 - 家族族谱</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .tree-page {
+            background-color: var(--secondary-color);
+            padding: 50px 0;
+        }
+        
+        .family-tree-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+        
+        .tree-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tree-diagram {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .tree-level::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background-color: var(--primary-color);
+        }
+        
+        .tree-level:last-child::after {
+            display: none;
+        }
+        
+        .tree-node {
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            margin: 0 15px;
+            min-width: 200px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .tree-node.primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tree-node.primary h3 {
+            color: white;
+        }
+        
+        .connector {
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .connector.down {
+            top: 100%;
+            left: 50%;
+            height: 30px;
+        }
+        
+        .connector.up {
+            bottom: 100%;
+            left: 50%;
+            height: 30px;
+        }
+        
+        .connector.right {
+            top: 50%;
+            left: 100%;
+            width: 30px;
+            height: 2px;
+        }
+        
+        .connector.left {
+            top: 50%;
+            right: 100%;
+            width: 30px;
+            height: 2px;
+        }
+        
+        .tree-siblings {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .tree-siblings::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: calc(20% - 1px);
+            right: calc(20% - 1px);
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .member-details {
+            margin-top: 50px;
+        }
+        
+        .member-detail {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .member-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .member-photo {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .member-info p {
+            line-height: 1.7;
+        }
+        
+        .member-details-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .member-content {
+                flex-direction: row;
+            }
+            
+            .member-photo {
+                width: 40%;
+                height: auto;
+            }
+            
+            .member-info {
+                width: 60%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">特朗普家族</h1>
+        <p class="site-description">美国商业与政治传奇家族</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="family-photo.html">家族肖像</a></li>
+            <li><a href="family-tree.html" class="active">家族族谱</a></li>
+        </ul>
+    </nav>
+
+    <section class="tree-page">
+        <div class="container">
+            <div class="family-tree-container">
+                <div class="tree-intro">
+                    <h2>特朗普家族族谱</h2>
+                    <p>特朗普家族的血缘关系图，展示了核心家族成员之间的关系。</p>
+                </div>
+                
+                <div class="tree-diagram">
+                    <div class="tree-level">
+                        <div class="tree-node">
+                            <h3>弗里德里希·特朗普</h3>
+                            <p>1869-1918</p>
+                            <p>家族创始人</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tree-level">
+                        <div class="tree-node">
+                            <h3>弗雷德·特朗普</h3>
+                            <p>1905-1999</p>
+                            <p>房地产开发商</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tree-level">
+                        <div class="tree-node primary">
+                            <h3>唐纳德·特朗普</h3>
+                            <p>1946-至今</p>
+                            <p>第45任、第47任美国总统</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tree-siblings">
+                        <div class="tree-node">
+                            <h3>小唐纳德·特朗普</h3>
+                            <p>1977-至今</p>
+                            <p>特朗普集团执行副总裁</p>
+                        </div>
+                        
+                        <div class="tree-node">
+                            <h3>伊万卡·特朗普</h3>
+                            <p>1981-至今</p>
+                            <p>商人，前白宫高级顾问</p>
+                        </div>
+                        
+                        <div class="tree-node">
+                            <h3>埃里克·特朗普</h3>
+                            <p>1984-至今</p>
+                            <p>特朗普集团执行副总裁</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="member-details">
+                <h2 class="member-details-title">家族成员详细介绍</h2>
+                
+                <div class="member-detail">
+                    <div class="member-content">
+                        <iframe src="images-real/donald.html" class="member-photo"></iframe>
+                        <div class="member-info">
+                            <h3>唐纳德·特朗普</h3>
+                            <p><strong>生平：</strong> 唐纳德·约翰·特朗普（Donald John Trump）于1946年6月14日出生于纽约皇后区。他是美国商人、媒体人物和政治家，曾担任美国第45任总统（2017-2021），后当选为美国第47任总统。</p>
+                            <p><strong>事业：</strong> 特朗普在1971年接管了父亲的房地产公司，并将其更名为特朗普集团（The Trump Organization）。他将业务从皇后区和布鲁克林扩展到曼哈顿，开发了诸多奢华项目，包括标志性的特朗普大厦。此外，他还涉足娱乐业，制作并主持了热门电视真人秀《学徒》。</p>
+                            <p><strong>政治生涯：</strong> 2016年，特朗普以共和党候选人身份参选美国总统并获胜，成为美国历史上首位没有任何军事或政治经验的总统。2020年竞选连任失败，但2024年再次当选为美国第47任总统，成为美国历史上少数几位非连续任期的总统之一。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="member-detail">
+                    <div class="member-content">
+                        <iframe src="images-real/fred.html" class="member-photo"></iframe>
+                        <div class="member-info">
+                            <h3>弗雷德·特朗普</h3>
+                            <p><strong>生平：</strong> 弗雷德里克·克里斯特·特朗普（Frederick Christ Trump）于1905年10月11日出生，1999年6月25日去世。他是一位美国房地产开发商，专注于纽约市皇后区和布鲁克林区的中产阶级住房项目。</p>
+                            <p><strong>事业：</strong> 弗雷德·特朗普在大萧条时期开始了他的房地产生涯，通过为纽约中产阶级建造负担得起的住房积累了巨额财富。到20世纪70年代，他已经建造了超过27,000套住房单位。</p>
+                            <p><strong>家族影响：</strong> 弗雷德是特朗普家族财富的主要创造者，他教导儿子唐纳德·特朗普房地产业务的基础知识。据估计，他去世时留下了约2.5亿至3亿美元的遗产。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="member-detail">
+                    <div class="member-content">
+                        <iframe src="images-real/donald-jr.html" class="member-photo"></iframe>
+                        <div class="member-info">
+                            <h3>小唐纳德·特朗普</h3>
+                            <p><strong>生平：</strong> 唐纳德·约翰·特朗普二世（Donald John Trump Jr.）于1977年12月31日出生于纽约市。他是唐纳德·特朗普与其第一任妻子伊万娜·特朗普的长子。</p>
+                            <p><strong>事业：</strong> 小唐纳德与弟弟埃里克一起担任特朗普集团的执行副总裁，负责管理公司在全球的房地产、酒店和高尔夫资产。</p>
+                            <p><strong>政治活动：</strong> 他积极参与父亲的政治活动，是特朗普竞选团队的重要发言人和支持者。他著有《触发》和《自由枪》等政治著作。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="member-detail">
+                    <div class="member-content">
+                        <iframe src="images-real/ivanka.html" class="member-photo"></iframe>
+                        <div class="member-info">
+                            <h3>伊万卡·特朗普</h3>
+                            <p><strong>生平：</strong> 伊万卡·玛丽·特朗普（Ivanka Marie Trump）于1981年10月30日出生于纽约市。她是唐纳德·特朗普与第一任妻子伊万娜·特朗普的女儿。</p>
+                            <p><strong>事业：</strong> 伊万卡曾是一名模特，后来成为特朗普集团的执行副总裁。她还创建了自己的时装和珠宝系列品牌。</p>
+                            <p><strong>政治角色：</strong> 在父亲担任总统期间，她与丈夫贾里德·库什纳一起担任白宫高级顾问，主要关注经济赋权、家庭政策和教育倡议。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="member-detail">
+                    <div class="member-content">
+                        <iframe src="images-real/eric.html" class="member-photo"></iframe>
+                        <div class="member-info">
+                            <h3>埃里克·特朗普</h3>
+                            <p><strong>生平：</strong> 埃里克·弗雷德里克·特朗普（Eric Frederick Trump）于1984年1月6日出生于纽约市。他是唐纳德·特朗普与第一任妻子伊万娜·特朗普的第三个孩子。</p>
+                            <p><strong>事业：</strong> 埃里克与哥哥小唐纳德一起担任特朗普集团的执行副总裁，负责公司的高尔夫球场和酒店资产组合。</p>
+                            <p><strong>慈善工作：</strong> 他创立了埃里克·特朗普基金会，为患有致命疾病的儿童筹集资金。该基金会特别支持圣裘德儿童研究医院。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="member-detail">
+                    <div class="member-content">
+                        <iframe src="images-real/melania.html" class="member-photo"></iframe>
+                        <div class="member-info">
+                            <h3>梅拉尼娅·特朗普</h3>
+                            <p><strong>生平：</strong> 梅拉尼娅·特朗普（Melania Trump，原名Melanija Knavs）于1970年4月26日出生于斯洛文尼亚。她是唐纳德·特朗普的第三任妻子，两人于2005年结婚。</p>
+                            <p><strong>职业：</strong> 在嫁给唐纳德·特朗普之前，梅拉尼娅是一名时装模特，在欧洲和美国工作。</p>
+                            <p><strong>第一夫人：</strong> 2017年至2021年，她担任美国第一夫人，推出了"Be Best"倡议，专注于儿童福利、社交媒体使用和阿片类药物危机。2025年起，她将再次担任美国第一夫人。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="family-photo.html">家族肖像</a>
+                <a href="family-tree.html">家族族谱</a>
+            </div>
+            <p class="copyright">© 2024 特朗普家族网站 - 图片来源：维基百科公共领域</p>
+        </div>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,47 @@
+{
+    "mcpServers": {
+      "sequential-thinking": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-sequential-thinking"
+        ]
+      },
+      "firecrawl-mcp": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "firecrawl-mcp"
+        ],
+        "env": {
+          "FIRECRAWL_API_KEY": "your_firecrawl_api_key_here-----"
+        }
+      },
+      "amap-maps": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@amap/amap-maps-mcp-server"
+        ],
+        "env": {
+          "AMAP_MAPS_API_KEY": "your_amap_maps_api_key_here-----"
+        }
+      },
+      "tavily-mcp": {
+        "command": "npx",
+        "args": ["-y", "tavily-mcp@0.1.4"],
+        "env": {
+          "TAVILY_API_KEY": "your_tavily_api_key_here-----"
+        },
+        "disabled": false,
+        "autoApprove": []
+      },
+      "research-agent": {
+        "command": "npx",
+        "args": ["-y", "@agentdeskai/browser-tools-mcp@1.2.0"],
+        "env": {
+          "PERMISSION_SCOPE": "research"
+        }
+      }
+    }
+  }
