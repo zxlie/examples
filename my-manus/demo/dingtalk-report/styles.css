@@ -1,0 +1,340 @@
+/* 全局样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 导航栏样式 */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+
+/* 英雄区域样式 */
+.hero-section {
+    background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+    color: white;
+    padding: 4rem 0;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.report-meta {
+    margin-top: 2rem;
+}
+
+.report-meta span {
+    margin: 0 1rem;
+    display: inline-block;
+}
+
+.report-meta i {
+    margin-right: 0.5rem;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 指标卡片样式 */
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+}
+
+.metric-card i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.metric-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.metric-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0056b3;
+    margin: 0;
+}
+
+/* 时间线样式 */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.timeline-badge {
+    background: #0056b3;
+    color: white;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    top: -15px;
+    left: 2rem;
+}
+
+.timeline-content {
+    padding-top: 1rem;
+}
+
+.timeline-item h3 {
+    color: #0056b3;
+    margin-bottom: 1rem;
+}
+
+.timeline-item ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.timeline-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* 功能卡片样式 */
+.feature-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.feature-card h4 {
+    color: #0056b3;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.feature-card ul {
+    padding-left: 1.2rem;
+}
+
+.feature-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* 市场分析样式 */
+.market-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.market-trends {
+    margin-top: 2rem;
+}
+
+.trend-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.trend-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.trend-item i {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 1rem;
+}
+
+/* 影响和未来展望部分样式 */
+.impact-card, .future-card, .challenge-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.impact-card h3, .future-card h3, .challenge-card h4 {
+    color: #0056b3;
+    margin-bottom: 1rem;
+}
+
+.impact-card ul, .future-card ul, .challenge-card ul {
+    padding-left: 1.2rem;
+}
+
+.impact-card li, .future-card li, .challenge-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* 页脚样式 */
+footer {
+    background: #f8f9fa;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer h5 {
+    color: #0056b3;
+    margin-bottom: 1rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .timeline-item {
+        padding: 1rem;
+    }
+    
+    .feature-card {
+        margin-bottom: 1rem;
+    }
+
+    .trend-item {
+        min-width: 100%;
+    }
+
+    .report-meta span {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* 动画效果 */
+.timeline-item, .feature-card, .metric-card, .trend-item {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 技术栈样式 */
+.tech-stack {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.tech-stack ul li {
+    margin-bottom: 1rem;
+}
+
+.tech-stack i {
+    color: #28a745;
+    margin-right: 0.5rem;
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 打印样式 */
+@media print {
+    .navbar {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .timeline-item, .feature-card, .impact-card, .future-card {
+        break-inside: avoid;
+    }
+} 
